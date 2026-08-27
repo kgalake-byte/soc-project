@@ -1,0 +1,16 @@
+# Log files (keep only example logs)
+logs/*.log
+!logs/example.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Temporary files
+*.tmp
