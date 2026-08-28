@@ -38,6 +38,20 @@ soc-project/
 5. Lateral Movement (WMI)
 6. Data Exfiltration
 
+## 📸 Screenshots
+
+### WinRM Login Detection (Event 4624)
+![WinRM Login](screenshots/event-4624.png)
+*Successful WinRM login detected in Splunk*
+
+### Account Creation (Event 4720)
+![Account Creation](screenshots/event-4720.png)
+*Backdoor account creation detected in Splunk*
+
+### Process Creation (Event 4688)
+![Process Creation](screenshots/event-4688.png)
+*Suspicious process execution detected in Splunk*
+
 ## 📊 Detection Sources
 - **Suricata:** Network-based detection
 - **Windows Event Logs:** Host-based detection
