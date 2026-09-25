@@ -122,3 +122,9 @@ MIT License
 
 ## 👤 Author
 Kgalake Mabotja
+
+## 📄 CV
+
+The latest CV is available in the [`cv/`](cv/) directory:
+- [HTML version](cv/Kgalake-Mabotja-SOC-CV.html) (editable)
+- [PDF version](cv/Kgalake-Mabotja-SOC-CV.pdf) (for applications)

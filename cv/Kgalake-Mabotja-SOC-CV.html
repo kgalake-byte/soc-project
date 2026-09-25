@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kgalake Ben Mabotja - SOC Analyst CV</title>
+    <style>
+        /* ===== GLOBAL RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            line-height: 1.5;
+            color: #2d2d2d;
+            background: #e0e0e0;
+            padding: 30px 20px;
+        }
+
+        .cv-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            padding: 45px 50px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .header .tagline {
+            font-size: 16px;
+            color: #3498db;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 12px 0 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contact-info a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary {
+            background: #f0f7ff;
+            padding: 15px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 5px;
+            border-left: 4px solid #2c3e50;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skill-category li {
+            font-size: 13px;
+            padding: 3px 0;
+            color: #555;
+        }
+
+        .skill-category li:before {
+            content: "▹";
+            color: #3498db;
+            margin-right: 8px;
+        }
+
+        .cert-table, .project-table, .exp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .cert-table td, .cert-table th,
+        .project-table td, .project-table th,
+        .exp-table td, .exp-table th {
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .cert-table th, .project-table th, .exp-table th {
+            background: #f2f2f2;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .job {
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 15px;
+            color: #2c3e50;
+        }
+
+        .job-date {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+        }
+
+        .job ul {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .job li {
+            margin: 4px 0;
+        }
+
+        .job-highlight {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-top: 6px;
+            font-size: 13px;
+            border-left: 3px solid #3498db;
+        }
+
+        ul.simple-list {
+            margin-left: 20px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        ul.simple-list li {
+            margin: 5px 0;
+        }
+
+        .reference-card {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid #3498db;
+        }
+
+        .reference-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .reference-details {
+            font-size: 13px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .reference-details span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .project-box {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .project-box.cloud {
+            background: #e8f8f0;
+            border-left: 4px solid #27ae60;
+        }
+
+        .project-box.local {
+            background: #f0f7ff;
+            border-left: 4px solid #3498db;
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .project-meta {
+            font-size: 13px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .project-meta a {
+            color: #2c3e50;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .cv-container {
+                max-width: 100%;
+                padding: 20px 25px;
+                box-shadow: none;
+            }
+            .contact-info a {
+                text-decoration: none;
+                color: #555;
+            }
+            .summary, .reference-card, .job-highlight, .project-box {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .section-title {
+                print-color-adjust: exact;
+            }
+            @page {
+                size: A4;
+                margin: 1.5cm;
+            }
+            body, .cv-container {
+                background: white;
+            }
+            .section, .job, .skill-category, .reference-card, .project-box {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+
+        @media print {
+            html:after, body:after, html::after, body::after {
+                content: none !important;
+                display: none !important;
+            }
+        }
+
+        @page {
+            margin: 1.5cm;
+            size: A4;
+            @bottom-center { content: none !important; }
+            @bottom-left { content: none !important; }
+            @bottom-right { content: none !important; }
+            @top-center { content: none !important; }
+            @top-left { content: none !important; }
+            @top-right { content: none !important; }
+        }
+
+        .print-btn {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .print-btn button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .print-btn button:hover {
+            background: #3498db;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                padding: 20px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-btn">
+        <button onclick="window.print();">📄 Save as PDF / Print</button>
+    </div>
+
+    <div class="cv-container">
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <h1>KGALAKE BEN MABOTJA</h1>
+            <div class="tagline">SOC Analyst | Cybersecurity Professional</div>
+            <div class="contact-info">
+                <span>📍 Polokwane, South Africa</span>
+                <span>📞 +27 65 866 8187 / +27 76 538 1888</span>
+                <span>✉️ <a href="mailto:mabotjakgalake1@gmail.com">mabotjakgalake1@gmail.com</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/kgalake-mabotja" target="_blank">linkedin.com/in/kgalake-mabotja</a></span>
+                <span>💻 <a href="https://kgalake-byte.github.io/personal-web/" target="_blank">kgalake-byte.github.io</a></span>
+                <span>🐙 <a href="https://github.com/kgalake-byte" target="_blank">github.com/kgalake-byte</a></span>
+            </div>
+        </div>
+
+        <!-- ===== PROFESSIONAL SUMMARY ===== -->
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <div class="summary">
+                Dedicated Security Operations Center (SOC) Analyst with hands-on experience in threat detection, incident response, and security monitoring across <strong>both on-premises and cloud environments</strong>. Built a comprehensive home SOC with <strong>Splunk SIEM + Suricata IDS/IPS</strong> on FreeBSD, and deployed a <strong>cloud SIEM using LogTide on AWS EC2</strong> ingesting Windows Event Logs via webhook. Successfully simulated and detected real-world attacks including reconnaissance, brute force, privilege escalation, and persistence. Strong foundation in networking and security principles from Cisco certifications. Currently working in security operations monitoring and responding to threats.
+            </div>
+        </div>
+
+        <!-- ===== CERTIFICATIONS ===== -->
+        <div class="section">
+            <div class="section-title">Certifications</div>
+            <div style="margin-bottom: 8px; font-weight: bold;">Cisco Networking Academy – Complete Track</div>
+            <table class="cert-table">
+                <thead>
+                    <tr><th>Certificate</th><th>Key Topics</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Networking Basics</strong></td><td>OSI model, TCP/IP, subnetting, routing, switching, network security</td></tr>
+                    <tr><td><strong>Junior Cybersecurity Analyst</strong></td><td>Threat landscape, defense strategies, security policies, incident response</td></tr>
+                    <tr><td><strong>Ethical Hacker</strong></td><td>Penetration testing, exploitation, post-exploitation (offensive knowledge for defensive purposes)</td></tr>
+                </tbody>
+            </table>
+            <div style="font-size: 12px; margin-top: 6px;">✅ Three digital badges available via Cisco Credly</div>
+            <div style="margin-top: 10px;"><strong>In Progress:</strong> CompTIA Security+ | CompTIA CySA+ | TryHackMe SOC Analyst pathways</div>
+        </div>
+
+        <!-- ===== EDUCATION ===== -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div><strong>Matric Certificate</strong> | Semaneng Secondary School</div>
+            <div style="font-size: 13px; margin-top: 5px;"><em>Relevant self-study:</em> Security Operations, Incident Response, SIEM, Cloud Security, Network Security, Operating Systems (Windows, Linux, FreeBSD)</div>
+        </div>
+
+        <!-- ===== TECHNICAL SKILLS ===== -->
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Security Operations (SOC)</h4>
+                    <ul>
+                        <li>SIEM: Splunk Enterprise, LogTide (Cloud)</li>
+                        <li>IDS/IPS: Suricata (314+ rules)</li>
+                        <li>Cloud Security: AWS EC2, Security Groups</li>
+                        <li>Windows Event Logging (50+ audit policies)</li>
+                        <li>Threat Detection &amp; Incident Response</li>
+                        <li>MITRE ATT&amp;CK Framework</li>
+                        <li>Sigma Detection Rules</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Network Security</h4>
+                    <ul>
+                        <li>Nmap, Wireshark, Netcat</li>
+                        <li>TCP/IP, DNS, DHCP, VLANs</li>
+                        <li>FreeBSD pf Firewall</li>
+                        <li>Network Hardening</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Operating Systems</h4>
+                    <ul>
+                        <li>Kali Linux (Advanced)</li>
+                        <li>Windows Server (Event Logging, Hardening)</li>
+                        <li>Ubuntu Server (Cloud)</li>
+                        <li>FreeBSD (Firewall)</li>
+                        <li>Docker / VirtualBox</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Scripting &amp; Automation</h4>
+                    <ul>
+                        <li>Bash / Shell Scripting</li>
+                        <li>PowerShell (Log Forwarding)</li>
+                        <li>SQL (PostgreSQL, Detection Queries)</li>
+                        <li>Git &amp; GitHub</li>
+                        <li>YAML (Sigma Rules, Config)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FEATURED PROJECTS ===== -->
+        <div class="section">
+            <div class="section-title">Featured Projects</div>
+
+            <!-- Cloud SOC -->
+            <div class="project-box cloud">
+                <div class="project-title">🌩️ Cloud SOC: LogTide on AWS + Windows DC Detection</div>
+                <div class="project-meta">📎 <a href="https://github.com/kgalake-byte/soc-project/tree/main/cloud-soc" target="_blank">github.com/kgalake-byte/soc-project (cloud-soc)</a></div>
+                <div style="font-size: 13px; margin: 8px 0 6px;">Deployed a cloud-native SOC using <strong>LogTide on AWS EC2</strong> ingesting real Windows Event Logs via webhook:</div>
+                <table class="project-table" style="font-size: 13px;">
+                    <thead>
+                        <tr><th style="width: 25%;">Component</th><th>Implementation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>SIEM (Cloud)</strong></td><td>LogTide on AWS EC2 (Ubuntu 24.04, Docker, PostgreSQL)</td></tr>
+                        <tr><td><strong>Log Ingestion</strong></td><td>Webhook transport (HTTPS) from Windows DC</td></tr>
+                        <tr><td><strong>Detection</strong></td><td>350+ logs captured, full command chain extracted</td></tr>
+                        <tr><td><strong>Attack Simulation</strong></td><td>Brute force, backdoor accounts, privilege escalation</td></tr>
+                        <tr><td><strong>Detection Rules</strong></td><td>Sigma rules for account creation, priv esc, suspicious processes</td></tr>
+                    </tbody>
+                </table>
+                <div style="font-size: 13px; margin-top: 8px;"><strong>Key Events:</strong> 4624 (Logon), 4625 (Failed Login), 4688 (Process Creation), 4720 (Account Created), 4726 (Account Deleted), 4732 (Privilege Escalation)</div>
+                <div style="font-size: 13px; margin-top: 6px;"><strong>IOCs:</strong> Attacker IP (192.168.1.10), Backdoor Accounts (soc_backdoor, attack_evidence), Tools (Evil-WinRM, net.exe)</div>
+                <div style="font-size: 13px; margin-top: 6px; color: #27ae60;"><strong>✅ Result:</strong> Full attack chain captured with exact commands, MITRE ATT&amp;CK mapping documented</div>
+            </div>
+
+            <!-- Local SOC -->
+            <div class="project-box local">
+                <div class="project-title">🏠 Local SOC: Windows Domain Controller Attack Detection</div>
+                <div class="project-meta">📎 <a href="https://github.com/kgalake-byte/soc-project" target="_blank">github.com/kgalake-byte/soc-project</a></div>
+                <div style="font-size: 13px; margin: 8px 0 6px;">Built a complete on-premises SOC environment to simulate and detect real-world attacks:</div>
+                <table class="project-table" style="font-size: 13px;">
+                    <thead>
+                        <tr><th style="width: 25%;">Component</th><th>Implementation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>SIEM</strong></td><td>Splunk Enterprise with custom dashboards for real-time attack visualization</td></tr>
+                        <tr><td><strong>IDS/IPS</strong></td><td>Suricata with 314+ rules on FreeBSD firewall</td></tr>
+                        <tr><td><strong>Log Forwarding</strong></td><td>Splunk Universal Forwarder for Windows Event Logs</td></tr>
+                        <tr><td><strong>Windows Logging</strong></td><td>50+ audit policies including PowerShell logging, process creation, and account management</td></tr>
+                        <tr><td><strong>Attack Simulation</strong></td><td>Reconnaissance, WinRM brute force, privilege escalation, persistence (backdoor accounts)</td></tr>
+                    </tbody>
+                </table>
+                <div style="font-size: 13px; margin-top: 8px;"><strong>Key Detection Events:</strong> Event 4625 (Failed Logins), Event 4720 (Account Creation), Event 4688 (Process Creation), Event 4624 (WinRM Login)</div>
+                <div style="font-size: 13px; margin-top: 6px; color: #27ae60;"><strong>✅ Result:</strong> Successfully detected and responded to all attack vectors</div>
+            </div>
+        </div>
+
+        <!-- ===== PENETRATION TESTING PROJECT ===== -->
+        <div class="section">
+            <div class="section-title">Penetration Testing Experience</div>
+            <div><strong>Penetration Testing Lab: Ubuntu Server &amp; Windows 10</strong><br>
+            📎 GitHub: <a href="#">github.com/kgalake-byte/penetration-test-lab</a></div>
+            <div style="margin: 8px 0 6px;">Conducted complete penetration test from reconnaissance to reporting:</div>
+            <table class="project-table">
+                <thead><tr><th>Phase</th><th>Actions</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Reconnaissance</strong></td><td>Discovered open ports (Ubuntu: 22,80; Windows: 135,139,445)</td></tr>
+                    <tr><td><strong>Exploitation</strong></td><td>Gained SSH access to Ubuntu using default credentials</td></tr>
+                    <tr><td><strong>Privilege Escalation</strong></td><td>Escalated to root via sudo misconfiguration</td></tr>
+                    <tr><td><strong>Post-Exploitation</strong></td><td>Extracted password hashes, established persistence</td></tr>
+                    <tr><td><strong>Windows Assessment</strong></td><td>Discovered weak SMB credentials (non-admin access)</td></tr>
+                    <tr><td><strong>Reporting</strong></td><td>Delivered professional report with findings and remediation</td></tr>
+                </tbody>
+            </table>
+            <div><strong>Tools:</strong> Nmap, Gobuster, CrackMapExec, SSH, Responder</div>
+            <div style="margin-top: 8px;"><strong>Results:</strong></div>
+            <ul class="simple-list">
+                <li>✅ Ubuntu Server: FULLY COMPROMISED (root access)</li>
+                <li>🔸 Windows 10: Partial compromise (non-admin credentials)</li>
+            </ul>
+        </div>
+
+        <!-- ===== HANDS-ON LAB EXPERIENCE ===== -->
+        <div class="section">
+            <div class="section-title">Hands-on Lab Experience</div>
+            <div><strong>Cisco Networking Academy – Ethical Hacker Labs</strong></div>
+            <ul class="simple-list">
+                <li>Configured penetration testing virtual lab environments</li>
+                <li>Performed information gathering and vulnerability scanning</li>
+                <li>Conducted simulated social engineering attacks</li>
+                <li>Exploited application-based vulnerabilities</li>
+                <li>Practiced post-exploitation techniques and reporting</li>
+            </ul>
+            <div style="margin-top: 10px;"><strong>Virtual Home Lab</strong></div>
+            <ul class="simple-list">
+                <li>Built isolated lab with Kali attacker, Windows DC, Ubuntu Server, and FreeBSD firewall</li>
+                <li>Configured host-only and NAT networking for realistic simulations</li>
+                <li>Deployed cloud SIEM (LogTide on AWS EC2) with webhook ingestion</li>
+                <li>Documented complete attack chains for portfolio</li>
+                <li>Maintained snapshots for repeatable testing</li>
+            </ul>
+        </div>
+
+        <!-- ===== WORK EXPERIENCE ===== -->
+        <div class="section">
+            <div class="section-title">Work Experience</div>
+            <div class="job">
+                <div class="job-title">Control Room Operator | Triple S Security, Polokwane</div>
+                <div class="job-date">October 2014 – Present</div>
+                <ul>
+                    <li>Monitor alarm signals decoded by three different signal decoders</li>
+                    <li>Quickly assess the urgency of each alarm signal</li>
+                    <li>Dispatch armed response when necessary</li>
+                    <li>Advise clients on security situations and preventative measures</li>
+                </ul>
+                <div class="job-highlight">
+                    <strong>Key Transferable Skills:</strong> Rapid threat assessment, Calm under pressure, Clear communication, Incident response coordination
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROFESSIONAL DEVELOPMENT ===== -->
+        <div class="section">
+            <div class="section-title">Professional Development</div>
+            <div><strong>Completed</strong></div>
+            <ul class="simple-list">
+                <li>Cisco Ethical Hacker Certificate (70 hours)</li>
+                <li>Cisco Basic Networking</li>
+                <li>Junior Cybersecurity Analyst</li>
+                <li>TryHackMe pathways</li>
+                <li>Home SOC Project (Splunk, Suricata, Windows Event Logging)</li>
+                <li><strong>Cloud SOC Project (LogTide on AWS, Webhook Ingestion, PostgreSQL)</strong></li>
+            </ul>
+            <div style="margin-top: 8px;"><strong>In Progress</strong></div>
+            <ul class="simple-list">
+                <li>CompTIA Security+ certification</li>
+                <li>CompTIA CySA+ certification</li>
+                <li>Splunk Core Certified User</li>
+                <li>Microsoft Azure AZ-900</li>
+                <li>Additional TryHackMe rooms and CTFs</li>
+            </ul>
+        </div>
+
+        <!-- ===== ADDITIONAL INFORMATION ===== -->
+        <div class="section">
+            <div class="section-title">Additional Information</div>
+            <div><strong>Languages:</strong> English, Sepedi (Excellent spoken and written)</div>
+            <div style="margin-top: 6px;"><strong>Interests:</strong> Security Operations, Threat Detection, Incident Response, Cloud Security, SIEM configuration</div>
+            <div style="margin-top: 6px;"><strong>Online Presence:</strong> GitHub, LinkedIn, Personal Website</div>
+        </div>
+
+        <!-- ===== REFERENCES ===== -->
+        <div class="section">
+            <div class="section-title">References</div>
+            <div class="reference-card">
+                <div class="reference-name">Triple S Security</div>
+                <div class="reference-details">
+                    <span>📍 Polokwane, South Africa</span>
+                    <span>📞 +27 15 280 0408</span>
+                </div>
+                <div class="reference-details" style="margin-top: 4px;">
+                    <em>Current Role - Control Room Operations</em>
+                </div>
+            </div>
+            <div style="font-size: 13px; color: #555; margin-top: 8px;">
+                Additional professional references available upon request.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (window.location.search.includes('print=true')) {
+            window.print();
+        }
+    </script>
+</body>
+</html>
